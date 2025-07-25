@@ -1,7 +1,7 @@
 
 export default function MainLoadingScreen() {
   return (
-    <div className='grid md:grid-cols-3 lg:grid-cols-5 gap-5'>
+    <div className='grid md:grid-cols-3 lg:grid-cols-5 p-5 gap-5'>
 <div role="status" className="max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
   <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
     <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">

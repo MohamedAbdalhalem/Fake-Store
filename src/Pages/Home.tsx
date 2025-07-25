@@ -1,4 +1,5 @@
 
+import ErrorScreen from "../Components/ErrorScreen";
 import MainLoadingScreen from "../Components/MainLoadingScreen";
 import ProductCard from "../Components/ProductCard";
 import useAllProducts from "../Hooks/useAllProducts";
@@ -7,6 +8,9 @@ export default function Home() {
   const { products, isLoading, isError } = useAllProducts()
   if (isLoading) {
     return <MainLoadingScreen/>
+  }
+  if (isError) {
+    return <ErrorScreen/>
   }
   return (
     <div className="p-5">
