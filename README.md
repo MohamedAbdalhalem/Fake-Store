@@ -1,6 +1,6 @@
 # 🛒 Fake Store App
 
-A fully responsive e-commerce frontend built with **React** and **Tailwind CSS**, powered by the [Fake Store API](https://fakestoreapi.com/).  
+A fully responsive e-commerce frontend built with **React**,**Typescript** and **Tailwind CSS**, powered by the [Fake Store API](https://fakestoreapi.com/).  
 It includes real-time search, dynamic sorting, product detail pages, a shopping cart, user profile, and full support for **dark mode**.
 
 ---
