@@ -7,7 +7,7 @@ export default function useAllProducts() {
   const [isLoading,setIsLoading] =useState(false)
   const [isError, setIsError] = useState(false)
   function filterByName(e :React.KeyboardEvent<HTMLInputElement>) {
-    const newPoducts = products?.filter(product => product.title.startsWith(e.currentTarget.value) )
+    const newPoducts = products?.filter(product => product.title.startsWith(e.currentTarget.value.toUpperCase()) )
     setProducts(newPoducts)
     if (e.currentTarget.value == '') {
       getAllProducts()
