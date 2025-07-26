@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import ErrorScreen from "../Components/ErrorScreen"
 import { Spinner } from "flowbite-react"
+import useCartData from "../Hooks/useCartData"
+import UserCartDataSection from "../Components/UserCartDataSection"
+import CartItemSection from "../Components/CartItemSection"
 
 export default function Cart() {
-    function getCartData() {
-       return axios.get(`https://fakestoreapi.com/carts/1`)
-    }
-    const {data,isLoading,isError} = useQuery({
-        queryKey: ['getCartData'],
-        queryFn:getCartData
-    })
+    const{cartData,isLoading,isError} = useCartData()
     if (isError) {
         return <ErrorScreen/>
     }
@@ -19,10 +14,22 @@ export default function Cart() {
             <Spinner color="pink" aria-label="Extra large spinner example" size="xl" />
         </div>
     }
-    console.log(data?.data)
   return (
-    <div >
-        
+    <div className="px-4 pb-4 pt-22  mx-auto space-y-10">
+  {/* User Info */}
+  <UserCartDataSection userId={cartData.userId}/>
+
+  {/* Products List */}
+  <div>
+    <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+      🛒 Products in Cart
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cartData.products.map(product => <CartItemSection Quantity={product.quantity} prodctId={product.productId.toString()} />)}
     </div>
+  </div>
+</div>
+
+
   )
 }

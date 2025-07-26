@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 export default function ProductCard({productData} : {productData :productType}) {
   return (
-    <Link to={`productDetials/${productData.id}`} className=" bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition duration-300 hover:scale-[1.02]">
+    <Link to={`/productDetials/${productData.id}`} className=" bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition duration-300 hover:scale-[1.02]">
   <div className="w-full h-80 overflow-hidden">
     <img
       src={productData.image}
