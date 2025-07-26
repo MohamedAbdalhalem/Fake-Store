@@ -6,39 +6,26 @@ export default function useAllProducts() {
   const [products, setProducts] = useState<productType[] | undefined>(undefined)
   const [isLoading,setIsLoading] =useState(false)
   const [isError, setIsError] = useState(false)
-  function filterByName(e :React.FocusEvent<HTMLInputElement, Element>) {
-    const newPoducts = products?.filter(product => product.title.startsWith(e.target.value) )
+  function filterByName(e :React.KeyboardEvent<HTMLInputElement>) {
+    const newPoducts = products?.filter(product => product.title.startsWith(e.currentTarget.value) )
     setProducts(newPoducts)
-    if (e.target.value == '') {
+    if (e.currentTarget.value == '') {
       getAllProducts()
     }
   }
-  
-  function nameAToZ() {
-      const newProducts = orderBy(products, ['title'], ['asc'])
-      setProducts(newProducts)
+  function sortBy(iteratees : string,orders : 'asc' | 'desc') {
+    const newProducts = orderBy(products, [`${iteratees}`], [`${orders}`])
+    setProducts(newProducts)
   }
-  function nameZToA() {
-    const newProducts = orderBy(products, ['title'], ['desc'])
-      setProducts(newProducts)
-  }
-  function priceLowToHigh() {
-    const newProducts = orderBy(products, ['price'], ['asc'])
-      setProducts(newProducts)
-  }
-  function priceHighToLow() {
-    const newProducts = orderBy(products, ['price'], ['desc'])
-      setProducts(newProducts)
-    }
     function sort(e:React.ChangeEvent<HTMLSelectElement>) {
     if (e.target.value === 'priceLow') {
-      priceLowToHigh()
+      sortBy('price','asc')
     } else if (e.target.value === 'priceHigh') {
-      priceHighToLow()
+      sortBy('price','desc')
     } else if (e.target.value === 'nameAZ') {
-      nameAToZ()
+      sortBy('title',"asc")
     } else if (e.target.value === 'nameZA') {
-      nameZToA()
+      sortBy('title',"asc")
     } else {
       getAllProducts()
     }

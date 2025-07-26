@@ -15,10 +15,10 @@ export default function Nav() {
         <i onClick={DarkMood} className={`fa-solid ${isDark ? 'fa-moon' : 'fa-sun'} text-gray-800 dark:text-white text-lg cursor-pointer`}></i>
         <NavbarToggle />
       </div>
-      <NavbarCollapse>
-        <NavbarLink ><NavLink to='/'>Home</NavLink ></NavbarLink>
-        <NavbarLink ><NavLink to='/Cart'>Cart</NavLink ></NavbarLink>
-        <NavbarLink ><NavLink to='/Profile'>Profile</NavLink ></NavbarLink>
+      <NavbarCollapse className="">
+        <NavbarLink className="text-[16px]"><NavLink to='/'>Home</NavLink ></NavbarLink>
+        <NavbarLink className="text-[16px]"><NavLink to='/Cart'>Cart</NavLink ></NavbarLink>
+        <NavbarLink className="text-[16px]"><NavLink to='/Profile'>Profile</NavLink ></NavbarLink>
       </NavbarCollapse>
     </Navbar> 
   )

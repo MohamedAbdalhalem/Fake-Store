@@ -8,6 +8,12 @@ body{
     font-family: "Lato", sans-serif;
 }
 .active{
-    color: blueviolet;
-    font-weight: bold;  
+    color: #802C6f;
+    font-weight: 900;
+    font-size: px;  
+}
+@media (min-width: 768px){
+ [data-testid="flowbite-navbar-collapse"] ul{
+    align-items: baseline;
+}
 }

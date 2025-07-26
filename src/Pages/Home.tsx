@@ -6,7 +6,7 @@ import useAllProducts from "../Hooks/useAllProducts";
 export default function Home() {
   const {products,isLoading,isError,sort,filterByName}= useAllProducts()
   if (isLoading) {
-    return <MainLoadingScreen/>
+    return <MainLoadingScreen count={4}/>
   }
   if (isError) {
     return <ErrorScreen/>
@@ -29,11 +29,11 @@ export default function Home() {
       </div>
        <input
         type="text"
-        onBlur={(e)=> filterByName(e) }
+        onKeyUp={(e)=> filterByName(e) }
       placeholder="Search products..."
       className="w-full  border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
       />
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5 mt-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
             {products?.map(product => <ProductCard key={product.id} productData={product}/>)}
           </div >
     </div>
