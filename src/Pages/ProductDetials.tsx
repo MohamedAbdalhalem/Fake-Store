@@ -1,30 +1,20 @@
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import { useParams } from "react-router"
-import { productType } from "../Types/Product.type"
 import ProductDetialsLoadingScreen from "../Components/ProductDetialsLoadingScreen"
 import  StarRatings  from 'react-star-ratings';
 import ErrorScreen from "../Components/ErrorScreen"
+import useProductDetials from "../Hooks/useProductDetials"
 
 export default function ProductDetials() {
     const { id } = useParams()
-    console.log(id)
-    function getProductDetials() {
-        return axios.get(`https://fakestoreapi.com/products/${id}`)
-    }
-    const{data,isLoading,isError} = useQuery({
-        queryKey: ['getProductDetials', id],
-        queryFn:getProductDetials
-    })
-    const productDetials: productType = data?.data
+    const {productDetials,isLoading,isError} = useProductDetials(id)
     if (isLoading) {
         return <ProductDetialsLoadingScreen/>
   }
-  if (isError || data?.data == '') {
+  if (isError || !productDetials) {
     return <ErrorScreen/>
   }
   return (
-    <div className="p-5">
+    <div className="px-4 pb-4 pt-22">
       
     <div className=" grid md:grid-cols-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
   <img

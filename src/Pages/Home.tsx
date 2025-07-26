@@ -13,11 +13,11 @@ export default function Home() {
   }
   
   return (
-    <div className="p-5">
-      <div className="flex flex-wrap justify-between items-center mb-4 ">
-        <h1 className="text-gray-800 dark:text-white font-bold text-3xl">Products :</h1>
+    <div className="px-4 pb-4 pt-22">
+      <div className="flex  flex-wrap justify-between items-center mb-4 ">
+        <h1 className="text-gray-800 mb-4 sm:mb-0 dark:text-white font-bold text-3xl">Products :</h1>
         <select
-          className="w-40 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+          className="w-full sm:w-auto px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
           onChange={(e)=>{sort(e)}}
         >
          <option value="">Sort By</option>

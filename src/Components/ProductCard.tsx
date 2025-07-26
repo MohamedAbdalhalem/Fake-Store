@@ -16,9 +16,9 @@ export default function ProductCard({productData} : {productData :productType}) 
   <div className="p-4">
     <h5 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
       {productData.title}
-    </h5>
-
-    <div className="flex items-center">
+        </h5>
+        <div className='flex justify-between items-center'>
+          <div className="flex items-center">
       <StarRatings
         rating={productData.rating.rate}
         starRatedColor="#facc15"
@@ -30,7 +30,12 @@ export default function ProductCard({productData} : {productData :productType}) 
      <span className="ml-2 text-sm font-medium text-gray-800 bg-gray-200 dark:text-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-lg">
   {productData.rating.rate.toFixed(1)}
 </span>
-    </div>
+          </div>
+          <div className="text-xl font-bold text-blue-700 dark:text-blue-400">
+        ${productData.price}
+      </div>
+        </div>
+    
   </div>
 </Link>
 
