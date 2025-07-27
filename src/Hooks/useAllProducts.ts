@@ -25,7 +25,7 @@ export default function useAllProducts() {
     } else if (e.target.value === 'nameAZ') {
       sortBy('title',"asc")
     } else if (e.target.value === 'nameZA') {
-      sortBy('title',"asc")
+      sortBy('title',"desc")
     } else {
       getAllProducts()
     }
